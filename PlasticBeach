@@ -1,0 +1,48 @@
+#!/bin/bash 
+
+# storing the value of the date command in TimeInHours and grabing indvidual chars 
+TimeInHours=$(date +"%r")
+echo ${TimeInHours:0:2}
+echo $TimeInHours
+
+
+# runs the program to make sure the background will change based on input. 
+Select="3"
+
+for Select in 0 1 2 3 4
+  do
+    sleep 15
+	case $Select in
+	  0)
+	    echo "gsettings set org.gnome.desktop.background picture-uri "file:///home/david/Pictures/beach_night.png"" | at now # sets the bacground to Night
+	    echo "the background will be changed to Night" # i could make this update the logging in the terminal
+	    ;;
+	  1)
+	    echo "gsettings set org.gnome.desktop.background picture-uri "file:///home/david/Pictures/beach_morning.png"" | at now # sets the bacground to Night
+	    echo "the background will be changed to morning" # i could make this update the logging in the terminal
+	    ;;
+	  2)
+	    echo "gsettings set org.gnome.desssktop.background picture-uri "file:///home/david/Pictures/beach_early-_noon.jpg"" | at now # sets the bacground to Night
+	    echo "the background will be changed to early-noon" # i could make this update the logging in the terminal
+	    ;;
+	  3)
+	    echo "gsettings set org.gnome.desktop.background picture-uri "file:///home/david/Pictures/beach_evening.png"" | at now # sets the bacground to Night
+	    echo "the background will be changed to evening" # i could make this update the logging in the terminal
+	    ;;
+	  *) # does '*' represent others?
+	    echo "gsettings set org.gnome.desktop.background picture-uri "file:///home/david/Pictures/beach_night.png"" | at now # sets the bacground to Night
+	    echo "the background will be changed to Night due to others" # i could make this update the logging in the terminal
+	    ;;
+	esac
+  done
+
+
+
+
+
+
+
+
+
+
+

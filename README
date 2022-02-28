@@ -1,0 +1,22 @@
+I am going to make a script that changes the background of the desktop depending on the time of day
+
+1. The first level concept is that the background will change to the day version of plastic beach during day light and change to the night version at night.
+
+2. I will create a device that will measure the light levels out side and change to day/night depeding the stenght of the light
+
+3. edit a few more bacjgrounds to raining, thunderstorm , ect... 
+
+4. using the day light website, that tells when day light should start depending on the time of year, it will grab that info and change the photos 
+
+Questions: How do i keep the script running whith out as soon as the os turns on or is in rest mode. How often does it check?? i think this is a good enough info to start
+
+how to change the background through the terminal
+how to check the date
+
+Change wall paper command: gsettings set org.gnome.desktop.background picture-uri "file:///home/david/Pictures/beach_evening.png"
+	I recommend that you change the transparentcy of your shell while trying to make sure this works for you.
+
+event at x time:
+	There are two ways of doing this. Making it occur every 12 hours or at t = x change
+https://www.timeanddate.com/sun/usa/houston
+the above link is what i am using for the time of when to change the background
