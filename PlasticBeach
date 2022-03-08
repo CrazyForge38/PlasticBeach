@@ -2,8 +2,15 @@
 
 # storing the value of the date command in TimeInHours and grabing indvidual chars 
 TimeInHours=$(date +"%r")
-echo ${TimeInHours:0:2}
-echo $TimeInHours
+Hours=${TimeInHours:0:2}
+Minutes=${TimeInHours:3:2}  # breaks down the char into seperate sting  
+wee_hours=${TimeInHours:9:2} # idk the format so much
+
+echo $TimeInHours   
+echo "hours: $Hours"
+echo "mins: $Minutes"
+echo "wee-hours: $wee_hours"
+
 
 
 # runs the program to make sure the background will change based on input. 
