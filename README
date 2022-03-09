@@ -20,3 +20,6 @@ event at x time:
 	There are two ways of doing this. Making it occur every 12 hours or at t = x change
 https://www.timeanddate.com/sun/usa/houston
 the above link is what i am using for the time of when to change the background
+
+--cron command, now I need to make the time thing work
+https://stackoverflow.com/questions/12973777/how-to-run-a-shell-script-at-startup

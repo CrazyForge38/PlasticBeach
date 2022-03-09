@@ -11,8 +11,9 @@ echo "hours: $Hours"
 echo "mins: $Minutes"
 echo "wee-hours: $wee_hours"
 
-
-
+expr $Hours + 1 # how to pipe a value from a command into a variable
+#echo "$Hours"
+ 
 # runs the program to make sure the background will change based on input. 
 Select="3"
 
@@ -42,10 +43,6 @@ for Select in 0 1 2 3 4
 	    ;;
 	esac
   done
-
-
-
-
 
 
 
