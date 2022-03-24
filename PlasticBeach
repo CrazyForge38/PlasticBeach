@@ -1,23 +1,37 @@
-#!/bin/bash 
+#!/bin/bash
 
 # storing the value of the date command in TimeInHours and grabing indvidual chars 
-TimeInHours=$(date +"%r")
-Hours=${TimeInHours:0:2}
+TimeInHours=$(date +"%r") # 24hr format %R
+Hours=${TimeInHours:0:2} # start from this number and grab this many
 Minutes=${TimeInHours:3:2}  # breaks down the char into seperate sting  
 wee_hours=${TimeInHours:9:2} # idk the format so much
 
 echo $TimeInHours   
 echo "hours: $Hours"
 echo "mins: $Minutes"
-echo "wee-hours: $wee_hours"
+echo "wee_hours: $wee_hours"
 
-expr $Hours + 1 # how to pipe a value from a command into a variable
-#echo "$Hours"
+if [ "$wee_hours" = "PM" ] ;
+  then
+    #echo "testing the thing"
+    wee_hours=12
+    echo "$wee_hours"
+  else
+    #echo "testing the second thing"
+    wee_hours=0
+    echo "$wee_hours"
+fi
+
+Hours=$(( $Hours + $wee_hours ))
+
+#hourextra=$(expr $Minutes + 1) # how to pipe a value from a command into a variable
+# instead of writing the command in the variable
+# just to determine if this is a int or string
+
+
  
-# runs the program to make sure the background will change based on input. 
-Select="3"
 
-for Select in 0 1 2 3 4
+for Select in 0 1 2 3 4 5
   do
     sleep 15
 	case $Select in
@@ -26,15 +40,19 @@ for Select in 0 1 2 3 4
 	    echo "the background will be changed to Night" # i could make this update the logging in the terminal
 	    ;;
 	  1)
-	    echo "gsettings set org.gnome.desktop.background picture-uri "file:///home/david/Pictures/beach_morning.png"" | at now # sets the bacground to Night
+	    echo "gsettings set org.gnome.desktop.background picture-uri "file:///home/david/Pictures/beach_morning.png"" | at now # sets the bacground to morning
 	    echo "the background will be changed to morning" # i could make this update the logging in the terminal
 	    ;;
 	  2)
-	    echo "gsettings set org.gnome.desssktop.background picture-uri "file:///home/david/Pictures/beach_early-_noon.jpg"" | at now # sets the bacground to Night
+	    echo "gsettings set org.gnome.desssktop.background picture-uri "file:///home/david/Pictures/beach_early-_noon.jpg"" | at now # sets the bacground to early noon
 	    echo "the background will be changed to early-noon" # i could make this update the logging in the terminal
 	    ;;
 	  3)
-	    echo "gsettings set org.gnome.desktop.background picture-uri "file:///home/david/Pictures/beach_evening.png"" | at now # sets the bacground to Night
+	    echo "gsettings set org.gnome.desktop.background picture-uri "file:///home/david/Pictures/beach_evening.png"" | at now # sets the bacground to evening
+	    echo "the background will be changed to evening" # i could make this update the logging in the terminal
+	    ;;
+	  4)
+	    echo "gsettings set org.gnome.desktop.background picture-uri "file:///home/david/Pictures/beach_day.png"" | at now # sets the bacground to day
 	    echo "the background will be changed to evening" # i could make this update the logging in the terminal
 	    ;;
 	  *) # does '*' represent others?
