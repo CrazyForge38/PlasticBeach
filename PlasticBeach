@@ -1,17 +1,27 @@
 #!/bin/bash
 
 # storing the value of the date command in TimeInHours and grabing indvidual chars 
-TimeInHours=$(date +"%r") # 24hr format %R
+TimeInHours=$(date +"%R") # 24hr format %R
 Hours=${TimeInHours:0:2} # start from this number and grab this many
 Minutes=${TimeInHours:3:2}  # breaks down the char into seperate sting  
 wee_hours=${TimeInHours:9:2} # idk the format so much
+
+
+
+#variable names that that hold the time from the sun graph
+# right now it will be made up
+
+#Hours=05 #start from this number and grab this many
+#Minutes=34  # breaks down the char into seperate sting  
+#wee_hours=AM # idk the format so much
+
 
 echo $TimeInHours   
 echo "hours: $Hours"
 echo "mins: $Minutes"
 echo "wee_hours: $wee_hours"
 
-if [ "$wee_hours" = "PM" ] ;
+if [ "$wee_hours" = "PM" ] ; # make this a function
   then
     #echo "testing the thing"
     wee_hours=12
@@ -22,7 +32,11 @@ if [ "$wee_hours" = "PM" ] ;
     echo "$wee_hours"
 fi
 
+#if else statement
+
 Hours=$(( $Hours + $wee_hours ))
+
+echo "$Hours"
 
 #hourextra=$(expr $Minutes + 1) # how to pipe a value from a command into a variable
 # instead of writing the command in the variable
